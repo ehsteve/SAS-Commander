@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'SAS-Commander' target in the 'SAS-Commander' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
