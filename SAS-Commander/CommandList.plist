@@ -253,7 +253,7 @@
 		<key>key</key>
 		<string>0x0551</string>
 	</dict>
-	<key>Set new pointing</key>
+	<key>Set Target</key>
 	<dict>
 		<key>key</key>
 		<string>0x0412</string>
