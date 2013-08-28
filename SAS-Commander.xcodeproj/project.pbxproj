@@ -30,6 +30,7 @@
 		86529BBC17CD39B100AA11C1 /* lib_crc.c in Sources */ = {isa = PBXBuildFile; fileRef = 86529BB817CD39B100AA11C1 /* lib_crc.c */; };
 		86529BBD17CD39B100AA11C1 /* lib_crc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86529BBA17CD39B100AA11C1 /* lib_crc.txt */; };
 		86529BC217CD3A9500AA11C1 /* CommandList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86529BC117CD3A9500AA11C1 /* CommandList.plist */; };
+		867AF73217CD953900AAE11C /* icon.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 867AF73117CD953900AAE11C /* icon.iconset */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		86529BB917CD39B100AA11C1 /* lib_crc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lib_crc.h; sourceTree = "<group>"; };
 		86529BBA17CD39B100AA11C1 /* lib_crc.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lib_crc.txt; sourceTree = "<group>"; };
 		86529BC117CD3A9500AA11C1 /* CommandList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CommandList.plist; sourceTree = "<group>"; };
+		867AF73117CD953900AAE11C /* icon.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = icon.iconset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		86529B5717CD2DD500AA11C1 = {
 			isa = PBXGroup;
 			children = (
+				867AF73117CD953900AAE11C /* icon.iconset */,
 				86529B6917CD2DD500AA11C1 /* SAS-Commander */,
 				86529B8617CD2DD500AA11C1 /* SAS-CommanderTests */,
 				86529B6217CD2DD500AA11C1 /* Frameworks */,
@@ -290,6 +293,7 @@
 				86529B7A17CD2DD500AA11C1 /* MainMenu.xib in Resources */,
 				86529BBD17CD39B100AA11C1 /* lib_crc.txt in Resources */,
 				86529BC217CD3A9500AA11C1 /* CommandList.plist in Resources */,
+				867AF73217CD953900AAE11C /* icon.iconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +532,7 @@
 				86529B9317CD2DD500AA11C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		86529B9417CD2DD500AA11C1 /* Build configuration list for PBXNativeTarget "SAS-CommanderTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +541,7 @@
 				86529B9617CD2DD500AA11C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
