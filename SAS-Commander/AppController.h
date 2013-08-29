@@ -25,5 +25,6 @@
 - (IBAction)cancel_Button:(NSButton *)sender;
 - (IBAction)ConfirmButtonPushed:(NSButton *)sender;
 - (IBAction)ChoseTargetSystem:(NSComboBox *)sender;
+- (IBAction)SwitchNetwork:(NSPopUpButton *)sender;
 
 @end

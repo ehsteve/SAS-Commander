@@ -9,12 +9,16 @@
 #import "AppController.h"
 #import "Commander.h"
 
+#define SAS_CMD_GROUND_PORT 2001 /* The command port on the ground network */
+#define SAS_CMD_FLIGHT_PORT 2000 /* The command port on the flight network */
+
 @interface AppController()
 @property (nonatomic, strong) NSDictionary *plistDict;
 @property (nonatomic, strong) Commander *commander;
 @property (nonatomic, strong) NSDictionary *listOfCommands;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) int CountDownSeconds;
+@property (nonatomic) int sendToPort;
 - (void)updateCommandKeyBasedonTargetSystem:(NSString *)target_system;
 - (void)updateTimerLabel;
 @end
@@ -31,6 +35,7 @@
 @synthesize timer;
 @synthesize timerLabel;
 @synthesize CountDownSeconds;
+@synthesize sendToPort;
 
 - (Commander *)commander
 {
@@ -124,6 +129,17 @@
     [self updateCommandKeyBasedonTargetSystem:target_system];
 }
 
+- (IBAction)SwitchNetwork:(NSPopUpButton *)sender {
+    if ([sender.selectedItem.title isEqualToString:@"Flight"]) {
+        self.sendToPort = SAS_CMD_FLIGHT_PORT;
+        [self.timerLabel setStringValue:@" "];
+    }
+    if ([sender.selectedItem.title isEqualToString:@"Ground"]) {
+        self.sendToPort = SAS_CMD_GROUND_PORT;
+        [self.timerLabel setStringValue:@"6"];
+    }
+}
+
 - (void)updateCommandKeyBasedonTargetSystem:(NSString *)target_system {
     NSString *command_key = [self.commandKey_textField stringValue];
     if ([target_system isEqualToString:@"SAS 1"]) {
@@ -149,13 +165,13 @@
     NSInteger numberOfVariablesNeeded = [variable_names count];
     
     if (numberOfVariablesNeeded == 0) {
-        command_sequence_number = [self.commander send:(uint16_t)command_key :nil :[self.destinationIP_textField stringValue]];
+        command_sequence_number = [self.commander send:(uint16_t)command_key :nil :[self.destinationIP_textField stringValue] :self.sendToPort];
     } else {
         NSMutableArray *variables = [[NSMutableArray alloc] init];
         for (NSInteger i = 0; i < numberOfVariablesNeeded; i++) {
             [variables addObject:[NSNumber numberWithInt:[[self.Variables_Form cellAtIndex:i] intValue]]];
         }
-        command_sequence_number = [self.commander send:(uint16_t)command_key :[variables copy]:[self.destinationIP_textField stringValue]];
+        command_sequence_number = [self.commander send:(uint16_t)command_key :[variables copy]:[self.destinationIP_textField stringValue] :self.sendToPort];
     }
     
     [self.commandCount_textField setIntegerValue:command_sequence_number];
@@ -165,9 +181,10 @@
     [self.targetListcomboBox setEnabled:YES];
     [self.destinationIP_textField setEnabled:YES];
     [self.commandListcomboBox setTextColor:[NSColor blackColor]];
-    self.timerLabel.stringValue = @"6";
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimerLabel) userInfo:nil repeats:YES];
-
+    if (self.sendToPort == SAS_CMD_GROUND_PORT) {
+        self.timerLabel.stringValue = @"6";
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimerLabel) userInfo:nil repeats:YES];
+    }
 }
 
 - (IBAction)cancel_Button:(NSButton *)sender {
