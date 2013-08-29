@@ -18,6 +18,7 @@
 @property (weak) IBOutlet NSButton *send_Button;
 @property (weak) IBOutlet NSComboBox *targetListcomboBox;
 @property (weak) IBOutlet NSButton *confirm_Button;
+@property (weak) IBOutlet NSTextField *timerLabel;
 
 - (IBAction)commandList_action:(NSComboBox *)sender;
 - (IBAction)send_Button:(NSButton *)sender;

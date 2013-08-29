@@ -13,7 +13,10 @@
 @property (nonatomic, strong) NSDictionary *plistDict;
 @property (nonatomic, strong) Commander *commander;
 @property (nonatomic, strong) NSDictionary *listOfCommands;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic) int CountDownSeconds;
 - (void)updateCommandKeyBasedonTargetSystem:(NSString *)target_system;
+- (void)updateTimerLabel;
 @end
 
 @implementation AppController
@@ -25,6 +28,9 @@
 @synthesize commander = _commander;
 @synthesize send_Button;
 @synthesize targetListcomboBox;
+@synthesize timer;
+@synthesize timerLabel;
+@synthesize CountDownSeconds;
 
 - (Commander *)commander
 {
@@ -41,6 +47,7 @@
         // read command list dictionary from the CommandList.plist resource file
         NSString *errorDesc = nil;
         NSPropertyListFormat format;
+        self.CountDownSeconds = 0;
         //self.listOfCommands = [[NSDictionary alloc] init];
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"CommandList" ofType:@"plist"];
         NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
@@ -158,6 +165,9 @@
     [self.targetListcomboBox setEnabled:YES];
     [self.destinationIP_textField setEnabled:YES];
     [self.commandListcomboBox setTextColor:[NSColor blackColor]];
+    self.timerLabel.stringValue = @"6";
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimerLabel) userInfo:nil repeats:YES];
+
 }
 
 - (IBAction)cancel_Button:(NSButton *)sender {
@@ -167,6 +177,15 @@
     [self.commandListcomboBox setEnabled:YES];
     [self.targetListcomboBox setEnabled:YES];
     [self.destinationIP_textField setEnabled:YES];
+}
+
+- (void)updateTimerLabel{
+    int value = 5 - self.CountDownSeconds++;
+    self.timerLabel.stringValue = [NSString stringWithFormat:@"%d", value];
+    if (value == 0) {
+        [self.timer invalidate];
+        self.CountDownSeconds = 0;
+    }
 }
 
 
