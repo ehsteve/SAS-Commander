@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Get relative clocking</key>
+	<dict>
+		<key>var_types</key>
+		<array/>
+		<key>var_names</key>
+		<array/>
+		<key>description</key>
+		<string>Request the relative clocking between the screens</string>
+		<key>key</key>
+		<string>0x0C20</string>
+	</dict>
 	<key>Cmd surpress tm packets</key>
 	<dict>
 		<key>var_types</key>

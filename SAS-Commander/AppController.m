@@ -61,6 +61,7 @@
                                                mutabilityOption:NSPropertyListMutableContainersAndLeaves
                                                format:&format
                                                errorDescription:&errorDesc];
+        self.sendToPort = SAS_CMD_GROUND_PORT;
     }
     return self;
 }
@@ -162,16 +163,19 @@
     NSString *user_choice = [self.commandListcomboBox stringValue];
     
     NSArray *variable_names = [[self.listOfCommands valueForKey:user_choice] valueForKey:@"var_names"];
+    
+    NSArray *variable_types = [[self.listOfCommands valueForKey:user_choice] valueForKey:@"var_types"];
+    
     NSInteger numberOfVariablesNeeded = [variable_names count];
     
     if (numberOfVariablesNeeded == 0) {
-        command_sequence_number = [self.commander send:(uint16_t)command_key :nil :[self.destinationIP_textField stringValue] :self.sendToPort];
+        command_sequence_number = [self.commander send:(uint16_t)command_key :nil :nil :[self.destinationIP_textField stringValue] :self.sendToPort];
     } else {
         NSMutableArray *variables = [[NSMutableArray alloc] init];
         for (NSInteger i = 0; i < numberOfVariablesNeeded; i++) {
-            [variables addObject:[NSNumber numberWithInt:[[self.Variables_Form cellAtIndex:i] intValue]]];
+            [variables addObject:[NSNumber numberWithFloat:[[self.Variables_Form cellAtIndex:i] floatValue]]];
         }
-        command_sequence_number = [self.commander send:(uint16_t)command_key :[variables copy]:[self.destinationIP_textField stringValue] :self.sendToPort];
+        command_sequence_number = [self.commander send:(uint16_t)command_key :[variables copy] :[variable_types copy] :[self.destinationIP_textField stringValue] :self.sendToPort];
     }
     
     [self.commandCount_textField setIntegerValue:command_sequence_number];
