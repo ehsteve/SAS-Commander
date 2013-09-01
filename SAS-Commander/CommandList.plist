@@ -97,6 +97,32 @@
 		<key>key</key>
 		<string>0x0A10</string>
 	</dict>
+	<key>Get latitude</key>
+	<dict>
+		<key>var_types</key>
+		<array>
+			<string>float2b</string>
+		</array>
+		<key>var_names</key>
+		<array/>
+		<key>description</key>
+		<string>Request the current latitude</string>
+		<key>key</key>
+		<string>0x0CA0</string>
+	</dict>
+	<key>Get longitude</key>
+	<dict>
+		<key>var_types</key>
+		<array>
+			<string>float2b</string>
+		</array>
+		<key>var_names</key>
+		<array/>
+		<key>description</key>
+		<string>Request the current longitude</string>
+		<key>key</key>
+		<string>0x0CB0</string>
+	</dict>
 	<key>Set camera twist</key>
 	<dict>
 		<key>var_types</key>
@@ -301,7 +327,7 @@
 		<key>key</key>
 		<string>0x0881</string>
 	</dict>
-	<key>Cmd start/stop saving images</key>
+	<key>Set saving images flag</key>
 	<dict>
 		<key>var_types</key>
 		<array>
@@ -312,9 +338,24 @@
 			<string>On/Off</string>
 		</array>
 		<key>description</key>
-		<string>Set image saving boolean</string>
+		<string>Set image saving boolean (1 for ON)</string>
 		<key>key</key>
 		<string>0x0421</string>
+	</dict>
+	<key>Set GPS updating flag</key>
+	<dict>
+		<key>var_types</key>
+		<array>
+			<string>uint16</string>
+		</array>
+		<key>var_names</key>
+		<array>
+			<string>On/Off</string>
+		</array>
+		<key>description</key>
+		<string>Set GPS updating boolean (1 for ON)</string>
+		<key>key</key>
+		<string>0x0431</string>
 	</dict>
 	<key>Set PYAS preamp gain</key>
 	<dict>
@@ -473,6 +514,23 @@
 		<string>0x0412</string>
 		<key>description</key>
 		<string>Set new solar target, x and y in arcseconds</string>
+		<key>var_names</key>
+		<array>
+			<string>x</string>
+			<string>y</string>
+		</array>
+	</dict>
+	<key>Set latitude/longitude</key>
+	<dict>
+		<key>var_types</key>
+		<array>
+			<string>float2b</string>
+			<string>float2b</string>
+		</array>
+		<key>key</key>
+		<string>0x06A2</string>
+		<key>description</key>
+		<string>Set new latitude/longitude (degrees)</string>
 		<key>var_names</key>
 		<array>
 			<string>x</string>
