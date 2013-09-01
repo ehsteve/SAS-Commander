@@ -466,8 +466,8 @@
 	<dict>
 		<key>var_types</key>
 		<array>
-			<string>float2b</string>
-			<string>float2b</string>
+			<string>int16</string>
+			<string>int16</string>
 		</array>
 		<key>key</key>
 		<string>0x0412</string>
