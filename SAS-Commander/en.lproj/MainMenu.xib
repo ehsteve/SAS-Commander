@@ -1960,7 +1960,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="749811805">
 								<int key="NSCellFlags">68157504</int>
 								<int key="NSCellFlags2">138413056</int>
-								<string key="NSContents">6</string>
+								<string key="NSContents">--</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">52</double>

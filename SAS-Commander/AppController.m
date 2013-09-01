@@ -9,6 +9,8 @@
 #import "AppController.h"
 #import "Commander.h"
 
+#define COUNTDOWNSECONDS 6
+
 #define SAS_CMD_GROUND_PORT 2001 /* The command port on the ground network */
 #define SAS_CMD_FLIGHT_PORT 2000 /* The command port on the flight network */
 
@@ -52,7 +54,7 @@
         // read command list dictionary from the CommandList.plist resource file
         NSString *errorDesc = nil;
         NSPropertyListFormat format;
-        self.CountDownSeconds = 0;
+        self.CountDownSeconds = COUNTDOWNSECONDS;
         //self.listOfCommands = [[NSDictionary alloc] init];
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"CommandList" ofType:@"plist"];
         NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
@@ -137,7 +139,7 @@
     }
     if ([sender.selectedItem.title isEqualToString:@"Ground"]) {
         self.sendToPort = SAS_CMD_GROUND_PORT;
-        [self.timerLabel setStringValue:@"6"];
+        [self.timerLabel setStringValue:@"--"];
     }
 }
 
@@ -186,7 +188,9 @@
     [self.destinationIP_textField setEnabled:YES];
     [self.commandListcomboBox setTextColor:[NSColor blackColor]];
     if (self.sendToPort == SAS_CMD_GROUND_PORT) {
-        self.timerLabel.stringValue = @"6";
+        self.CountDownSeconds = COUNTDOWNSECONDS;
+        self.timerLabel.stringValue = [NSString stringWithFormat:@"%d sec", self.CountDownSeconds];
+        [self.timer invalidate];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimerLabel) userInfo:nil repeats:YES];
     }
 }
@@ -201,11 +205,11 @@
 }
 
 - (void)updateTimerLabel{
-    int value = 5 - self.CountDownSeconds++;
-    self.timerLabel.stringValue = [NSString stringWithFormat:@"%d", value];
-    if (value == 0) {
+    self.CountDownSeconds--;
+    self.timerLabel.stringValue = [NSString stringWithFormat:@"%d sec", self.CountDownSeconds];
+    if (self.CountDownSeconds == -1) {
+        [self.timerLabel setStringValue:@"--"];
         [self.timer invalidate];
-        self.CountDownSeconds = 0;
     }
 }
 
