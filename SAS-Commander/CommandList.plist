@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Cmd restart exe</key>
+	<dict>
+		<key>var_types</key>
+		<array/>
+		<key>var_names</key>
+		<array/>
+		<key>description</key>
+		<string>Make exe quit, systemd will restart it automatically</string>
+		<key>key</key>
+		<string>0x0150</string>
+	</dict>
 	<key>Cmd relays to default</key>
 	<dict>
 		<key>var_types</key>
