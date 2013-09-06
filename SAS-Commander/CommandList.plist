@@ -11,7 +11,7 @@
 		<key>description</key>
 		<string>Make exe quit, systemd will restart it automatically</string>
 		<key>key</key>
-		<string>0x0150</string>
+		<string>0x0050</string>
 	</dict>
 	<key>Cmd relays to default</key>
 	<dict>
