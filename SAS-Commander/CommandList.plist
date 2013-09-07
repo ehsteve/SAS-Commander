@@ -255,6 +255,17 @@
 		<key>key</key>
 		<string>0x0850</string>
 	</dict>
+	<key>Get NTP offset</key>
+	<dict>
+		<key>var_types</key>
+		<array/>
+		<key>var_names</key>
+		<array/>
+		<key>description</key>
+		<string>Request the current NTP offset in microseconds</string>
+		<key>key</key>
+		<string>0x0D10</string>
+	</dict>
 	<key>Get RAS exposure</key>
 	<dict>
 		<key>var_types</key>
