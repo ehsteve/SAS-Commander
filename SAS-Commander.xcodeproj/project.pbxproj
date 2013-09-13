@@ -472,6 +472,7 @@
 				GCC_PREFIX_HEADER = "SAS-Commander/SAS-Commander-Prefix.pch";
 				INFOPLIST_FILE = "SAS-Commander/SAS-Commander-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -481,10 +482,12 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SAS-Commander/SAS-Commander-Prefix.pch";
 				INFOPLIST_FILE = "SAS-Commander/SAS-Commander-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
