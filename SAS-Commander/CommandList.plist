@@ -506,6 +506,50 @@
 		<key>key</key>
 		<string>0x0130</string>
 	</dict>
+	<key>Cmd PYAS tstat bypass</key>
+	<dict>
+		<key>var_names</key>
+		<array/>
+		<key>var_types</key>
+		<array/>
+		<key>description</key>
+		<string>Bypass PYAS thermostat</string>
+		<key>key</key>
+		<string>0x0160</string>
+	</dict>
+	<key>Cmd PYAS tstat enable</key>
+	<dict>
+		<key>var_names</key>
+		<array/>
+		<key>var_types</key>
+		<array/>
+		<key>description</key>
+		<string>Enable PYAS thermostat</string>
+		<key>key</key>
+		<string>0x0170</string>
+	</dict>
+	<key>Cmd RAS tstat bypass</key>
+	<dict>
+		<key>var_names</key>
+		<array/>
+		<key>var_types</key>
+		<array/>
+		<key>description</key>
+		<string>Bypass RAS thermostat</string>
+		<key>key</key>
+		<string>0x0180</string>
+	</dict>
+	<key>Cmd RAS tstat enable</key>
+	<dict>
+		<key>var_names</key>
+		<array/>
+		<key>var_types</key>
+		<array/>
+		<key>description</key>
+		<string>Enable RAS thermostat</string>
+		<key>key</key>
+		<string>0x0190</string>
+	</dict>
 	<key>Cmd can heaters off</key>
 	<dict>
 		<key>var_names</key>
